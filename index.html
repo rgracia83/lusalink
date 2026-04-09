@@ -40,31 +40,42 @@
     border-bottom: 1px solid var(--border);
     padding: 0 5vw;
     display: flex; align-items: center; justify-content: space-between;
-    height: 72px;
+    height: 64px; gap: 12px;
   }
-  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
   .nav-logo-icon {
-    width: 38px; height: 38px;
+    width: 36px; height: 36px;
     background: linear-gradient(135deg, var(--teal) 0%, var(--indigo) 100%);
-    border-radius: 10px;
+    border-radius: 9px;
     display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
   }
   .nav-logo-icon::after {
-    content: ''; width: 16px; height: 16px;
+    content: ''; width: 14px; height: 14px;
     background: white; display: block;
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
   }
-  .nav-logo-text { font-size: 22px; font-weight: 600; color: var(--navy); letter-spacing: -0.3px; }
+  .nav-logo-text { font-size: 20px; font-weight: 600; color: var(--navy); letter-spacing: -0.3px; white-space: nowrap; }
   .nav-logo-text span { color: var(--teal-dark); }
   .nav-cta {
     background: var(--teal); color: var(--navy);
-    font-size: 14px; font-weight: 600;
-    padding: 10px 22px; border-radius: 50px;
+    font-size: 13px; font-weight: 600;
+    padding: 9px 18px; border-radius: 50px;
     text-decoration: none; border: none; cursor: pointer;
     transition: background 0.2s, transform 0.15s;
-    white-space: nowrap;
+    white-space: nowrap; flex-shrink: 0;
   }
   .nav-cta:hover { background: var(--teal-dark); transform: translateY(-1px); }
+  /* CTA label — curto em mobile, completo em desktop */
+  .nav-cta .cta-short { display: none; }
+  .nav-cta .cta-long  { display: inline; }
+  @media (max-width: 640px) {
+    nav { padding: 0 4vw; height: 60px; }
+    .nav-logo-text { font-size: 18px; }
+    .nav-cta { font-size: 12px; padding: 8px 14px; }
+    .nav-cta .cta-long  { display: none; }
+    .nav-cta .cta-short { display: inline; }
+  }
 
   /* HERO */
   .hero {
@@ -392,7 +403,10 @@
     <div class="nav-logo-icon"></div>
     <span class="nav-logo-text">Lusa<span>link</span></span>
   </a>
-  <a class="nav-cta" href="avaliacao.html">Saiba quanto pode valer o seu negócio</a>
+  <a class="nav-cta" href="avaliacao.html">
+    <span class="cta-long">Saiba quanto pode valer o seu negócio</span>
+    <span class="cta-short">Avaliar negócio</span>
+  </a>
 </nav>
 
 <!-- HERO -->

@@ -25,16 +25,26 @@
     position: sticky; top: 0; z-index: 100;
     background: rgba(255,255,255,0.94); backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border);
-    padding: 0 5vw; display: flex; align-items: center; justify-content: space-between; height: 72px;
+    padding: 0 5vw; display: flex; align-items: center; justify-content: space-between;
+    height: 64px; gap: 12px;
   }
-  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  .nav-logo-icon { width: 38px; height: 38px; background: linear-gradient(135deg, var(--teal) 0%, var(--indigo) 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
-  .nav-logo-icon::after { content: ''; width: 16px; height: 16px; background: white; display: block; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
-  .nav-logo-text { font-size: 22px; font-weight: 600; color: var(--navy); letter-spacing: -0.3px; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+  .nav-logo-icon { width: 36px; height: 36px; background: linear-gradient(135deg, var(--teal) 0%, var(--indigo) 100%); border-radius: 9px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .nav-logo-icon::after { content: ''; width: 14px; height: 14px; background: white; display: block; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
+  .nav-logo-text { font-size: 20px; font-weight: 600; color: var(--navy); letter-spacing: -0.3px; white-space: nowrap; }
   .nav-logo-text span { color: var(--teal-dark); }
-  .nav-back { font-size: 14px; color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+  .nav-back { font-size: 14px; color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; white-space: nowrap; flex-shrink: 0; }
   .nav-back:hover { color: var(--indigo); }
   .nav-back::before { content: '←'; }
+  .nav-back .back-long  { display: inline; }
+  .nav-back .back-short { display: none; }
+  @media (max-width: 640px) {
+    nav { padding: 0 4vw; height: 60px; }
+    .nav-logo-text { font-size: 18px; }
+    .nav-back { font-size: 13px; }
+    .nav-back .back-long  { display: none; }
+    .nav-back .back-short { display: inline; }
+  }
 
   /* HERO */
   .page-hero {
@@ -193,7 +203,10 @@
     <div class="nav-logo-icon"></div>
     <span class="nav-logo-text">Lusa<span>link</span></span>
   </a>
-  <a class="nav-back" href="index.html">Voltar ao início</a>
+  <a class="nav-back" href="index.html">
+    <span class="back-long">Voltar ao início</span>
+    <span class="back-short">Início</span>
+  </a>
 </nav>
 
 <!-- HERO -->
