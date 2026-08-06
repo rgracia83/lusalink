@@ -7,12 +7,14 @@ services:
     startCommand: npm start
     healthCheckPath: /api/health
     envVars:
+      - key: NODE_ENV
+        value: production
       - key: EMAIL_PROVIDER
         value: resend
       - key: RESEND_API_KEY
         sync: false
       - key: FORM_TO_EMAIL
-        sync: false
+        value: info@lusalink.pt
       - key: FORM_FROM_EMAIL
         sync: false
       - key: FORM_SUBJECT_PREFIX

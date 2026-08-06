@@ -15,6 +15,18 @@ app.disable('x-powered-by');
 app.use(express.json({ limit: '30kb' }));
 app.use(express.urlencoded({ extended: false, limit: '30kb' }));
 
+// Canonicaliza HTTPS e o domínio sem www em produção.
+app.use((req, res, next) => {
+  if (process.env.NODE_ENV !== 'production') return next();
+  const host = String(req.headers.host || '').toLowerCase().split(':')[0];
+  const proto = String(req.headers['x-forwarded-proto'] || req.protocol).split(',')[0].trim();
+  const isLusalinkHost = host === 'lusalink.pt' || host === 'www.lusalink.pt';
+  if (host === 'www.lusalink.pt' || (isLusalinkHost && proto !== 'https')) {
+    return res.redirect(301, `https://lusalink.pt${req.originalUrl}`);
+  }
+  return next();
+});
+
 app.use((req, res, next) => {
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
@@ -37,6 +49,18 @@ const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_FIELD_LENGTH = 4000;
 
 const FORM_DEFINITIONS = {
+  'quick-evaluation': {
+    subject: 'Novo pedido rápido de avaliação',
+    required: ['Nome', 'Telefone', 'Nome da empresa', 'Consentimento RGPD'],
+    fields: [
+      'Nome',
+      'Telefone',
+      'Nome da empresa',
+      'Receita anual (€)',
+      'EBITDA (€)',
+      'Consentimento RGPD'
+    ]
+  },
   contact: {
     subject: 'Novo contacto pelo site',
     required: ['Nome', 'email', 'Mensagem', 'Consentimento RGPD'],
@@ -51,7 +75,7 @@ const FORM_DEFINITIONS = {
   },
   evaluation: {
     subject: 'Novo pedido de avaliação',
-    required: ['Nome', 'Telefone', 'Nome da empresa', 'Código Postal', 'Consentimento RGPD'],
+    required: ['Nome', 'Telefone', 'Nome da empresa', 'Consentimento RGPD'],
     fields: [
       'Nome',
       'Telefone',
@@ -273,9 +297,20 @@ app.post('/api/forms/:formType', formLimiter, async (req, res) => {
   }
 });
 
+app.get('/index.html', (req, res) => res.redirect(301, '/'));
+app.get('/avaliacao.html', (req, res) => res.redirect(301, '/avaliacao'));
+app.get('/blog/index.html', (req, res) => res.redirect(301, '/blog/'));
+app.get('/politica-privacidade.html', (req, res) => res.redirect(301, '/politica-privacidade'));
+app.get('/politica-cookies.html', (req, res) => res.redirect(301, '/politica-cookies'));
+
 app.use(express.static(publicDir, {
   extensions: ['html'],
-  maxAge: process.env.NODE_ENV === 'production' ? '1h' : 0
+  maxAge: process.env.NODE_ENV === 'production' ? '1h' : 0,
+  setHeaders: (res, filePath) => {
+    if (/\.(?:css|js|jpg|jpeg|png|webp|svg|woff2)$/i.test(filePath)) {
+      res.setHeader('Cache-Control', 'public, max-age=604800, stale-while-revalidate=86400');
+    }
+  }
 }));
 
 app.get('/avaliacao', (req, res) => {
@@ -283,7 +318,7 @@ app.get('/avaliacao', (req, res) => {
 });
 
 app.use((req, res) => {
-  if (req.accepts('html')) return res.status(404).sendFile(path.join(publicDir, 'index.html'));
+  if (req.accepts('html')) return res.status(404).sendFile(path.join(publicDir, '404.html'));
   return res.status(404).json({ success: false, message: 'Recurso não encontrado.' });
 });
 

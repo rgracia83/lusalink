@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt">
+
+<html lang="pt-PT">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lusalink – Saiba quanto pode valer o seu negócio</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Avaliação de empresa de contabilidade | Lusalink</title>
+
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -53,7 +54,7 @@
   }
   .hero-bg-img {
     position: absolute; inset: 0;
-    background-image: url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1600&q=80');
+    background-image: url('/assets/images/og-avaliacao.jpg');
     background-size: cover; background-position: center top;
     filter: brightness(0.22);
   }
@@ -113,6 +114,7 @@
   .form-group { display: flex; flex-direction: column; gap: 6px; }
   .form-label { font-size: 13px; font-weight: 500; color: var(--navy); }
   .form-label .req { color: var(--teal-dark); margin-left: 2px; }
+  .optional { color: var(--text-muted); font-size: 0.85em; font-weight: 500; }
   .form-input {
     border: 1.5px solid #e4e4f0; border-radius: var(--radius-sm);
     padding: 11px 14px; font-family: var(--font-body); font-size: 15px;
@@ -143,6 +145,7 @@
   .consent-block { display: flex; align-items: flex-start; gap: 12px; padding: 16px; background: #f4f3fd; border: 1px solid var(--border); border-radius: var(--radius-sm); margin-top: 28px; }
   .consent-block input[type="checkbox"] { width: 17px; height: 17px; flex-shrink: 0; margin-top: 2px; accent-color: var(--indigo); cursor: pointer; }
   .consent-block label { font-size: 13px; color: var(--text-muted); line-height: 1.6; cursor: pointer; }
+  .consent-block label a { color: var(--indigo-dark); }
 
   /* SUBMIT */
   .submit-row { margin-top: 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
@@ -199,188 +202,179 @@
   .trust-pills { animation: fadeUp 0.45s 0.3s ease both; }
   .form-card { animation: fadeUp 0.55s 0.1s ease both; }
 </style>
-</head>
-<body>
-
+<meta content="Peça uma avaliação inicial e confidencial da sua empresa de contabilidade. Formulário simples, sem compromisso, com contacto da equipa Lusalink." name="description"/><meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/><meta content="Lusalink" name="author"/><meta content="#1a1f4b" name="theme-color"/><meta content="pt_PT" property="og:locale"/><meta content="website" property="og:type"/><meta content="Lusalink" property="og:site_name"/><meta content="Avaliação de empresa de contabilidade | Lusalink" property="og:title"/><meta content="Peça uma avaliação inicial e confidencial da sua empresa de contabilidade. Formulário simples, sem compromisso, com contacto da equipa Lusalink." property="og:description"/><meta content="https://lusalink.pt/avaliacao" property="og:url"/><meta content="https://lusalink.pt/assets/images/og-avaliacao.jpg" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="summary_large_image" name="twitter:card"/><meta content="Avaliação de empresa de contabilidade | Lusalink" name="twitter:title"/><meta content="Peça uma avaliação inicial e confidencial da sua empresa de contabilidade. Formulário simples, sem compromisso, com contacto da equipa Lusalink." name="twitter:description"/><meta content="https://lusalink.pt/assets/images/og-avaliacao.jpg" name="twitter:image"/><link href="https://lusalink.pt/avaliacao" rel="canonical"/><link href="/seo.css" rel="stylesheet"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Avaliação de empresa de contabilidade","url":"https://lusalink.pt/avaliacao","description":"Pedido de avaliação inicial e confidencial de uma empresa de contabilidade.","isPartOf":{"@type":"WebSite","name":"Lusalink","url":"https://lusalink.pt/"},"about":{"@type":"Service","name":"Avaliação de empresas de contabilidade","provider":{"@type":"Organization","name":"Lusalink","url":"https://lusalink.pt/"}}}</script><link href="/assets/images/favicon.png" rel="icon" type="image/png"/><link href="/assets/images/apple-touch-icon.png" rel="apple-touch-icon"/><link href="/cookie-consent.css" rel="stylesheet"/><script defer="" src="/cookie-consent.js?v=1"></script></head>
+<body><a class="skip-link" href="#evaluationForm">Saltar para o formulário</a>
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="index.html">
-    <div class="nav-logo-icon"></div>
-    <span class="nav-logo-text">Lusa<span>link</span></span>
-  </a>
-  <a class="nav-back" href="index.html">
-    <span class="back-long">Voltar ao início</span>
-    <span class="back-short">Início</span>
-  </a>
+<a aria-label="Lusalink — página inicial" class="nav-logo" href="/">
+<div class="nav-logo-icon"></div>
+<span class="nav-logo-text">Lusa<span>link</span></span>
+</a>
+<div class="nav-links"><a href="/blog/">Blog</a><a href="/#contacto">Contacto</a></div><a class="nav-back" href="/">
+<span class="back-long">Voltar ao início</span>
+<span class="back-short">Início</span>
+</a>
 </nav>
-
 <!-- HERO -->
 <section class="page-hero">
-  <div class="hero-bg-img"></div>
-  <div class="hero-bg-overlay"></div>
-  <div class="hero-inner">
-    <div class="page-hero-badge">Avaliação confidencial e gratuita</div>
-    <h1>Saiba quanto pode valer<br><em>o seu negócio</em></h1>
-    <p>Preencha o formulário abaixo para efetuarmos uma análise inicial confidencial do seu negócio, sem qualquer compromisso da sua parte.</p>
-    <div class="trust-pills">
-      <span class="trust-pill">🔒 100% confidencial</span>
-      <span class="trust-pill">⚡ Resposta em 48h</span>
-      <span class="trust-pill">🤝 Sem compromisso</span>
-      <span class="trust-pill">🇵🇹 Operamos em Portugal</span>
-    </div>
-  </div>
+<div class="hero-bg-img"></div>
+<div class="hero-bg-overlay"></div>
+<div class="hero-inner">
+<div class="page-hero-badge">Avaliação confidencial e gratuita</div>
+<h1>Saiba quanto pode valer<br/><em>o seu negócio</em></h1>
+<p>Preencha o formulário abaixo para efetuarmos uma análise inicial confidencial do seu negócio, sem qualquer compromisso da sua parte.</p>
+<div class="trust-pills">
+<span class="trust-pill">🔒 100% confidencial</span>
+<span class="trust-pill">⚡ Resposta em 48h</span>
+<span class="trust-pill">🤝 Sem compromisso</span>
+<span class="trust-pill">🇵🇹 Operamos em Portugal</span>
+</div>
+</div>
 </section>
-
 <!-- FORM -->
 <div class="page-body">
-  <div class="form-card">
-    <div class="form-card-header">
-      <div class="form-card-header-icon">📋</div>
-      <div>
-        <h2>Formulário de avaliação</h2>
-        <p>Análise inicial confidencial · Sem compromisso · Resposta em 48h úteis</p>
-      </div>
-    </div>
-
-    <form class="form-card-body" id="evaluationForm" novalidate>
-      <input class="hp-field" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
-
-      <!-- CONTACTO -->
-      <div class="form-section">
-        <div class="form-section-title">Dados de contacto</div>
-        <div class="form-grid-2">
-          <div class="form-group">
-            <label class="form-label" for="f-nome">Nome <span class="req">*</span></label>
-            <input class="form-input" type="text" id="f-nome" name="Nome" placeholder="O seu nome completo" autocomplete="name" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="f-tel">Telefone <span class="req">*</span></label>
-            <input class="form-input" type="tel" id="f-tel" name="Telefone" placeholder="+351 900 000 000" autocomplete="tel" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="f-email">Email</label>
-            <input class="form-input" type="email" id="f-email" name="email" placeholder="email@empresa.pt" autocomplete="email">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="f-cargo">Cargo / Função</label>
-            <input class="form-input" type="text" id="f-cargo" name="Cargo / Função" placeholder="Ex: Sócio-gerente" autocomplete="organization-title">
-          </div>
-        </div>
-      </div>
-
-      <!-- EMPRESA -->
-      <div class="form-section">
-        <div class="form-section-title">Dados da empresa</div>
-        <div class="form-grid-2">
-          <div class="form-group">
-            <label class="form-label" for="f-empresa">Nome da Empresa <span class="req">*</span></label>
-            <input class="form-input" type="text" id="f-empresa" name="Nome da empresa" placeholder="Nome da sua empresa" autocomplete="organization" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="f-nif">NIF</label>
-            <input class="form-input" type="text" id="f-nif" name="NIF" placeholder="000 000 000" inputmode="numeric">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="f-cp">Código Postal <span class="req">*</span></label>
-            <input class="form-input" type="text" id="f-cp" name="Código Postal" placeholder="0000-000" autocomplete="postal-code" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="f-site">Website</label>
-            <input class="form-input" type="url" id="f-site" name="Website" placeholder="https://www.empresa.pt" autocomplete="url">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="f-anos">Anos de actividade</label>
-            <input class="form-input" type="number" id="f-anos" name="Anos de actividade" placeholder="Ex: 15" min="0">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="f-colab">Nº de colaboradores</label>
-            <input class="form-input" type="number" id="f-colab" name="Número de colaboradores" placeholder="Ex: 8" min="0">
-          </div>
-        </div>
-      </div>
-
-      <!-- TIPO -->
-      <div class="form-section">
-        <div class="form-section-title">Tipo de negócio</div>
-        <div class="checkbox-grid">
-          <label class="checkbox-item"><input type="checkbox" name="Tipo de negócio" value="contabilidade"><span>Contabilidade</span></label>
-          <label class="checkbox-item"><input type="checkbox" name="Tipo de negócio" value="consultoria-fiscal"><span>Consultoria fiscal</span></label>
-          <label class="checkbox-item"><input type="checkbox" name="Tipo de negócio" value="consultoria-gestao"><span>Consultoria de gestão</span></label>
-          <label class="checkbox-item"><input type="checkbox" name="Tipo de negócio" value="bpo-financeiro"><span>BPO financeiro</span></label>
-          <label class="checkbox-item"><input type="checkbox" name="Tipo de negócio" value="bpo-hr"><span>BPO HR</span></label>
-          <label class="checkbox-item"><input type="checkbox" name="Tipo de negócio" value="bpo-it"><span>BPO IT</span></label>
-          <label class="checkbox-item"><input type="checkbox" name="Tipo de negócio" value="formacao"><span>Formação / certificação</span></label>
-          <label class="checkbox-item"><input type="checkbox" name="Tipo de negócio" value="medicina-trabalho"><span>Medicina no trabalho</span></label>
-          <label class="checkbox-item"><input type="checkbox" name="Tipo de negócio" value="outro"><span>Outro</span></label>
-        </div>
-      </div>
-
-      <!-- FINANCEIROS -->
-      <div class="form-section">
-        <div class="form-section-title">Dados financeiros</div>
-        <div class="form-grid-2">
-          <div class="form-group">
-            <label class="form-label" for="f-receita">Receita Anual (€)</label>
-            <div class="input-prefix-wrap">
-              <span class="input-prefix-sym">€</span>
-              <input class="form-input prefixed" type="text" id="f-receita" name="Receita anual (€)" placeholder="Ex: 250 000" inputmode="decimal">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="f-ebitda">Margem EBITDA (€)</label>
-            <div class="input-prefix-wrap">
-              <span class="input-prefix-sym">€</span>
-              <input class="form-input prefixed" type="text" id="f-ebitda" name="EBITDA (€)" placeholder="Ex: 80 000" inputmode="decimal">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CONSENT -->
-      <div class="consent-block">
-        <input type="checkbox" id="consent" name="Consentimento RGPD" value="Sim" required>
-        <label for="consent">Autorizo a utilização dos dados fornecidos para os fins comunicados, bem como o uso dos dados de contacto para comunicações futuras relacionadas com o processo de avaliação e aquisição. Os dados são tratados de acordo com o RGPD.</label>
-      </div>
-
-      <!-- SUBMIT -->
-      <div class="submit-row">
-        <span class="submit-note">Informação confidencial e segura</span>
-        <button class="btn-submit" type="submit">Enviar pedido de avaliação</button>
-        <div class="form-status" id="evaluationStatus" aria-live="polite"></div>
-      </div>
-
-    </form><!-- /form-card-body -->
-
-    <!-- SUCCESS -->
-    <div class="success-overlay" id="successOverlay">
-      <div class="success-icon">✓</div>
-      <h3>Pedido enviado com sucesso!</h3>
-      <p>Recebemos os seus dados. A nossa equipa irá analisar a sua empresa e entrar em contacto em até 48 horas úteis para uma conversa confidencial e sem compromisso.</p>
-    </div>
-  </div>
-
-  <!-- BOTTOM CARDS -->
-  <div class="bottom-strip">
-    <div class="bottom-card">
-      <img class="bottom-card-img" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=200&q=75" alt="Processo transparente">
-      <div class="bottom-card-body">
-        <h4>Processo transparente</h4>
-        <p>Acompanhamos cada passo da venda com clareza, sem surpresas e com total respeito pelo seu tempo.</p>
-      </div>
-    </div>
-    <div class="bottom-card">
-      <img class="bottom-card-img" src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=200&q=75" alt="Equipa experiente">
-      <div class="bottom-card-body">
-        <h4>Equipa experiente na Europa</h4>
-        <p>Histórico comprovado de aquisições em Portugal, Espanha e Reino Unido, gerando valor sustentável.</p>
-      </div>
-    </div>
-  </div>
-
-</div><!-- /page-body -->
-
-<footer>© Lusalink. Todos os direitos reservados.</footer>
-
+<div class="form-card">
+<div class="form-card-header">
+<div class="form-card-header-icon">📋</div>
+<div>
+<h2>Formulário de avaliação</h2>
+<p>Análise inicial confidencial · Sem compromisso · Resposta em 48h úteis</p>
+</div>
+</div>
+<form class="form-card-body" id="evaluationForm" novalidate="">
+<input aria-hidden="true" autocomplete="off" class="hp-field" name="_honey" tabindex="-1" type="text"/>
+<!-- CONTACTO -->
+<div class="form-section">
+<div class="form-section-title">Dados de contacto</div>
+<div class="form-grid-2">
+<div class="form-group">
+<label class="form-label" for="f-nome">Nome <span class="req">*</span></label>
+<input autocomplete="name" class="form-input" id="f-nome" name="Nome" placeholder="O seu nome completo" required="" type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label" for="f-tel">Telefone <span class="req">*</span></label>
+<input autocomplete="tel" class="form-input" id="f-tel" name="Telefone" placeholder="+351 900 000 000" required="" type="tel"/>
+</div>
+<div class="form-group">
+<label class="form-label" for="f-email">Email <span class="optional">(opcional)</span></label>
+<input autocomplete="email" class="form-input" id="f-email" name="email" placeholder="email@empresa.pt" type="email"/>
+</div>
+<div class="form-group">
+<label class="form-label" for="f-cargo">Cargo / Função <span class="optional">(opcional)</span></label>
+<input autocomplete="organization-title" class="form-input" id="f-cargo" name="Cargo / Função" placeholder="Ex: Sócio-gerente" type="text"/>
+</div>
+</div>
+</div>
+<!-- EMPRESA -->
+<div class="form-section">
+<div class="form-section-title">Dados da empresa</div>
+<div class="form-grid-2">
+<div class="form-group">
+<label class="form-label" for="f-empresa">Nome da Empresa <span class="req">*</span></label>
+<input autocomplete="organization" class="form-input" id="f-empresa" name="Nome da empresa" placeholder="Nome da sua empresa" required="" type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label" for="f-nif">NIF <span class="optional">(opcional)</span></label>
+<input class="form-input" id="f-nif" inputmode="numeric" name="NIF" placeholder="000 000 000" type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label" for="f-cp">Código Postal <span class="optional">(opcional)</span></label>
+<input autocomplete="postal-code" class="form-input" id="f-cp" name="Código Postal" placeholder="0000-000" type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label" for="f-site">Website <span class="optional">(opcional)</span></label>
+<input autocomplete="url" class="form-input" id="f-site" inputmode="url" name="Website" placeholder="empresa.pt" type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label" for="f-anos">Anos de actividade</label>
+<input class="form-input" id="f-anos" min="0" name="Anos de actividade" placeholder="Ex: 15" type="number"/>
+</div>
+<div class="form-group">
+<label class="form-label" for="f-colab">Nº de colaboradores</label>
+<input class="form-input" id="f-colab" min="0" name="Número de colaboradores" placeholder="Ex: 8" type="number"/>
+</div>
+</div>
+</div>
+<!-- TIPO -->
+<div class="form-section">
+<div class="form-section-title">Tipo de negócio <span class="optional">(opcional)</span></div>
+<div class="checkbox-grid">
+<label class="checkbox-item"><input name="Tipo de negócio" type="checkbox" value="contabilidade"/><span>Contabilidade</span></label>
+<label class="checkbox-item"><input name="Tipo de negócio" type="checkbox" value="consultoria-fiscal"/><span>Consultoria fiscal</span></label>
+<label class="checkbox-item"><input name="Tipo de negócio" type="checkbox" value="consultoria-gestao"/><span>Consultoria de gestão</span></label>
+<label class="checkbox-item"><input name="Tipo de negócio" type="checkbox" value="bpo-financeiro"/><span>BPO financeiro</span></label>
+<label class="checkbox-item"><input name="Tipo de negócio" type="checkbox" value="bpo-hr"/><span>BPO HR</span></label>
+<label class="checkbox-item"><input name="Tipo de negócio" type="checkbox" value="bpo-it"/><span>BPO IT</span></label>
+<label class="checkbox-item"><input name="Tipo de negócio" type="checkbox" value="formacao"/><span>Formação / certificação</span></label>
+<label class="checkbox-item"><input name="Tipo de negócio" type="checkbox" value="medicina-trabalho"/><span>Medicina no trabalho</span></label>
+<label class="checkbox-item"><input name="Tipo de negócio" type="checkbox" value="outro"/><span>Outro</span></label>
+</div>
+</div>
+<!-- FINANCEIROS -->
+<div class="form-section">
+<div class="form-section-title">Dados financeiros <span class="optional">(opcional)</span></div>
+<div class="form-grid-2">
+<div class="form-group">
+<label class="form-label" for="f-receita">Receita Anual (€)</label>
+<div class="input-prefix-wrap">
+<span class="input-prefix-sym">€</span>
+<input class="form-input prefixed" id="f-receita" inputmode="decimal" name="Receita anual (€)" placeholder="Ex: 250 000" type="text"/>
+</div>
+</div>
+<div class="form-group">
+<label class="form-label" for="f-ebitda">Margem EBITDA (€)</label>
+<div class="input-prefix-wrap">
+<span class="input-prefix-sym">€</span>
+<input class="form-input prefixed" id="f-ebitda" inputmode="decimal" name="EBITDA (€)" placeholder="Ex: 80 000" type="text"/>
+</div>
+</div>
+</div>
+</div>
+<!-- CONSENT -->
+<div class="consent-block">
+<input id="consent" name="Consentimento RGPD" required="" type="checkbox" value="Sim"/>
+<label for="consent">Autorizo a Lusalink a utilizar estes dados para analisar o pedido e entrar em contacto comigo. Consulte a <a href="/politica-privacidade">Política de Privacidade</a>.</label>
+</div>
+<!-- SUBMIT -->
+<div class="submit-row">
+<span class="submit-note">Informação confidencial e segura</span>
+<button class="btn-submit" type="submit">Enviar avaliação</button>
+<div aria-live="polite" class="form-status" id="evaluationStatus"></div>
+</div>
+</form><!-- /form-card-body -->
+<!-- SUCCESS -->
+<div class="success-overlay" id="successOverlay">
+<div class="success-icon">✓</div>
+<h3>Pedido enviado com sucesso!</h3>
+<p>Recebemos os seus dados. A nossa equipa irá analisar a sua empresa e entrar em contacto em até 48 horas úteis para uma conversa confidencial e sem compromisso.</p>
+</div>
+</div>
+<!-- BOTTOM CARDS -->
+<div class="bottom-strip">
+<div class="bottom-card">
+<img alt="Processo transparente" class="bottom-card-img" decoding="async" height="360" loading="lazy" src="/assets/images/processo-aquisicao-empresa-contabilidade.jpg" width="600"/>
+<div class="bottom-card-body">
+<h4>Processo transparente</h4>
+<p>Acompanhamos cada passo da venda com clareza, sem surpresas e com total respeito pelo seu tempo.</p>
+</div>
+</div>
+<div class="bottom-card">
+<img alt="Equipa experiente" class="bottom-card-img" decoding="async" height="360" loading="lazy" src="/assets/images/proteger-clientes-equipa-venda-contabilidade.jpg" width="600"/>
+<div class="bottom-card-body">
+<h4>Equipa experiente na Europa</h4>
+<p>Histórico comprovado de aquisições em Portugal, Espanha e Reino Unido, gerando valor sustentável.</p>
+</div>
+</div>
+</div>
+</div><section class="seo-copy"><h2>O que analisamos numa avaliação inicial</h2><p>Uma primeira avaliação considera a dimensão e a qualidade da receita, a rentabilidade normalizada, a concentração da carteira, a estrutura da equipa, a dependência do proprietário e o nível de organização dos processos. Não precisa de apresentar documentação completa neste formulário.</p><p>Para preparar a informação, consulte os nossos guias sobre <a class="inline-link" href="/blog/quanto-vale-empresa-contabilidade/">quanto pode valer uma empresa de contabilidade</a> e <a class="inline-link" href="/blog/preparar-gabinete-contabilidade-para-venda/">como preparar o gabinete para venda</a>.</p></section><!-- /page-body -->
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-brand"><a aria-label="Lusalink — página inicial" class="nav-logo" href="/"><div aria-hidden="true" class="nav-logo-icon"></div><span class="nav-logo-text">Lusa<span>link</span></span></a><p>A Lusalink adquire e integra empresas de contabilidade e serviços empresariais em Portugal, com foco em continuidade, valorização e transições confidenciais.</p></div>
+<div><div class="footer-title">Lusalink</div><div class="footer-links"><a href="/#empresa">Empresas que procuramos</a><a href="/avaliacao">Avaliação confidencial</a><a href="/#contacto">Contacto</a><a href="mailto:info@lusalink.pt">info@lusalink.pt</a></div></div>
+<div><div class="footer-title">Recursos e legal</div><div class="footer-links"><a href="/blog/">Blog</a><a href="/blog/como-vender-empresa-contabilidade-portugal/">Como vender uma empresa</a><a href="/blog/quanto-vale-empresa-contabilidade/">Quanto vale a empresa</a><a href="/blog/sucessao-gabinete-contabilidade/">Plano de sucessão</a><a href="/politica-privacidade">Política de Privacidade</a><a href="/politica-cookies">Política de Cookies</a><a class="js-cookie-settings" href="#">Gerir cookies</a></div></div>
+</div>
+<div class="footer-bottom"><span>© 2026 Lusalink. Todos os direitos reservados.</span><span>Informação geral; cada operação deve ser analisada com assessoria adequada.</span></div>
+</footer>
 <script src="forms.js"></script>
 </body>
 </html>

@@ -87,17 +87,11 @@
   if (heroForm) {
     heroForm.addEventListener('submit', (event) => {
       event.preventDefault();
-      if (!heroForm.checkValidity()) {
-        heroForm.reportValidity();
-        return;
-      }
-
-      const prefill = {};
-      new FormData(heroForm).forEach((value, key) => {
-        if (!key.startsWith('_')) prefill[key] = value;
+      sendForm(heroForm, {
+        endpoint: '/api/forms/quick-evaluation',
+        statusId: 'heroStatus',
+        successMessage: 'Pedido enviado com sucesso. Entraremos em contacto brevemente.'
       });
-      sessionStorage.setItem('lusalinkEvaluationPrefill', JSON.stringify(prefill));
-      window.location.href = 'avaliacao.html';
     });
   }
 
@@ -115,24 +109,6 @@
 
   const evaluationForm = document.getElementById('evaluationForm');
   if (evaluationForm) {
-    try {
-      const stored = JSON.parse(sessionStorage.getItem('lusalinkEvaluationPrefill') || '{}');
-      const mapping = {
-        Nome: 'f-nome',
-        Telefone: 'f-tel',
-        'Nome da empresa': 'f-empresa',
-        'Receita anual (€)': 'f-receita',
-        'EBITDA (€)': 'f-ebitda'
-      };
-      Object.entries(mapping).forEach(([key, id]) => {
-        const field = document.getElementById(id);
-        if (field && stored[key]) field.value = stored[key];
-      });
-      sessionStorage.removeItem('lusalinkEvaluationPrefill');
-    } catch (_) {
-      sessionStorage.removeItem('lusalinkEvaluationPrefill');
-    }
-
     evaluationForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       return sendForm(evaluationForm, {

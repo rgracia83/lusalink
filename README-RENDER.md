@@ -66,3 +66,34 @@ O backend também aceita SMTP, mas o serviço Render precisa de ser pago. Use:
 - `GET /api/health`
 
 Os formulários têm validação no servidor, honeypot antisspam e limite de pedidos por IP.
+
+
+## Formulários incluídos
+
+- O formulário rápido da página inicial envia diretamente para o backend e já não redireciona sem enviar.
+- No formulário completo, apenas Nome, Telefone, Nome da empresa e consentimento RGPD são obrigatórios.
+- O campo Website aceita `empresa.pt`, sem ser necessário escrever `https://`.
+
+
+## SEO e blog
+
+O projeto inclui `robots.txt`, `sitemap.xml`, canonical URLs, Open Graph, dados estruturados e 10 artigos em `/blog/`. Depois do deploy, envie `https://lusalink.pt/sitemap.xml` no Google Search Console e peça indexação da página inicial, `/blog/` e dos artigos prioritários.
+
+
+## Cookies, GA4 e Google Tag Manager
+
+O projeto inclui uma barra de cookies própria com Google Consent Mode v2.
+
+- Google Tag Manager: `GTM-52PXMD88`
+- GA4 ID de medição: `G-LCEC5RY9X8`
+- GA4 ID da stream: `11402039572`
+- Preferência de consentimento: cookie necessário `lusalink_consent`, válido por 180 dias
+
+As categorias opcionais começam em `denied`. O contentor GTM só é carregado depois de o visitante aceitar análise ou marketing. No Google Tag Manager, confirme que a Google tag/GA4 usa `G-LCEC5RY9X8` e que os consentimentos incorporados estão ativos. Evite adicionar um segundo snippet GA4 diretamente ao HTML, porque isso pode duplicar page views.
+
+Páginas legais:
+
+- `https://lusalink.pt/politica-privacidade`
+- `https://lusalink.pt/politica-cookies`
+
+Antes da publicação definitiva, confirme se pretende acrescentar à Política de Privacidade a denominação jurídica completa, NIPC e morada da entidade responsável.
