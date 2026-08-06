@@ -47,3 +47,13 @@ O SEO melhora a capacidade de rastreio e a relevância do conteúdo, mas não ga
 - Google Analytics 4 `G-LCEC5RY9X8`
 - Imagens da página inicial e avaliação servidas localmente, sem pedidos automáticos ao Unsplash
 - Fontes com fallback local, sem carregamento automático do Google Fonts
+
+
+## Imagens humanas e desempenho
+
+- Fotografias locais e coerentes com os temas de avaliação, sucessão, negociação, equipa e contacto.
+- Hero da página inicial e da avaliação com imagens humanas.
+- Blog e os 10 artigos com fotografias relacionadas com o respetivo conteúdo.
+- Secções Sobre e Contacto com presença humana e texto contextual.
+- Imagens visíveis servidas em WebP; versões JPG mantidas para Open Graph e partilhas sociais.
+- `alt` descritivo, dimensões explícitas, `loading=lazy` abaixo da dobra e prioridade apenas nas imagens principais.
