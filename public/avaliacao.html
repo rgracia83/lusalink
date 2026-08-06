@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lusalink – Saiba quanto pode valer o seu negócio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --teal: #3ecfb2; --teal-dark: #0fa88a; --teal-light: #d0f5ee;
+    --indigo: #5b4fcf; --indigo-dark: #3d35a0; --indigo-mid: #7b72d8; --indigo-light: #eeedfe;
+    --navy: #1a1f4b; --navy-mid: #2d3468;
+    --text: #1c1c2e; --text-muted: #5a5a78; --text-light: #8888a8;
+    --bg: #f8f9fc; --white: #ffffff; --border: rgba(91,79,207,0.12);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+    --radius: 14px; --radius-sm: 8px; --radius-lg: 24px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; min-height: 100vh; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.94); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5vw; display: flex; align-items: center; justify-content: space-between;
+    height: 64px; gap: 12px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+  .nav-logo-icon { width: 36px; height: 36px; background: linear-gradient(135deg, var(--teal) 0%, var(--indigo) 100%); border-radius: 9px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .nav-logo-icon::after { content: ''; width: 14px; height: 14px; background: white; display: block; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
+  .nav-logo-text { font-size: 20px; font-weight: 600; color: var(--navy); letter-spacing: -0.3px; white-space: nowrap; }
+  .nav-logo-text span { color: var(--teal-dark); }
+  .nav-back { font-size: 14px; color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; white-space: nowrap; flex-shrink: 0; }
+  .nav-back:hover { color: var(--indigo); }
+  .nav-back::before { content: '←'; }
+  .nav-back .back-long  { display: inline; }
+  .nav-back .back-short { display: none; }
+  @media (max-width: 640px) {
+    nav { padding: 0 4vw; height: 60px; }
+    .nav-logo-text { font-size: 18px; }
+    .nav-back { font-size: 13px; }
+    .nav-back .back-long  { display: none; }
+    .nav-back .back-short { display: inline; }
+  }
+
+  /* HERO */
+  .page-hero {
+    position: relative; overflow: hidden;
+    padding: 80px 5vw 100px; text-align: center;
+  }
+  .hero-bg-img {
+    position: absolute; inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1600&q=80');
+    background-size: cover; background-position: center top;
+    filter: brightness(0.22);
+  }
+  .hero-bg-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(160deg, rgba(26,31,75,0.9) 0%, rgba(45,52,104,0.78) 50%, rgba(61,53,160,0.7) 100%);
+  }
+  .hero-inner { position: relative; z-index: 2; }
+  .page-hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(62,207,178,0.15); border: 1px solid rgba(62,207,178,0.35);
+    color: var(--teal); font-size: 13px; font-weight: 500;
+    padding: 6px 16px; border-radius: 50px; margin-bottom: 22px;
+  }
+  .page-hero-badge::before { content: ''; width: 7px; height: 7px; background: var(--teal); border-radius: 50%; }
+  .page-hero h1 { font-family: var(--font-display); font-size: clamp(30px, 4vw, 50px); font-weight: 700; color: white; line-height: 1.2; margin-bottom: 16px; }
+  .page-hero h1 em { color: var(--teal); font-style: normal; }
+  .page-hero p { font-size: 17px; color: rgba(255,255,255,0.72); max-width: 560px; margin: 0 auto; line-height: 1.7; }
+
+  /* TRUST PILLS below hero */
+  .trust-pills {
+    display: flex; justify-content: center; gap: 12px;
+    flex-wrap: wrap; margin-top: 32px; position: relative; z-index: 2;
+  }
+  .trust-pill {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.8); font-size: 13px;
+    padding: 6px 16px; border-radius: 50px;
+    display: flex; align-items: center; gap: 6px;
+  }
+
+  /* MAIN */
+  .page-body { max-width: 880px; margin: -40px auto 80px; padding: 0 5vw; position: relative; z-index: 2; }
+
+  /* FORM CARD */
+  .form-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: 0 24px 64px rgba(91,79,207,0.15); overflow: hidden; }
+  .form-card-header { background: linear-gradient(135deg, var(--indigo) 0%, var(--indigo-dark) 100%); padding: 32px 40px; display: flex; align-items: center; gap: 18px; }
+  .form-card-header-icon { width: 52px; height: 52px; flex-shrink: 0; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+  .form-card-header h2 { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: white; margin-bottom: 4px; }
+  .form-card-header p { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.5; }
+  .form-card-body { padding: 40px; }
+
+  /* FORM SECTIONS */
+  .form-section { margin-bottom: 36px; }
+  .form-section:last-of-type { margin-bottom: 0; }
+  .form-section-title {
+    font-size: 12px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase;
+    color: var(--indigo-mid); margin-bottom: 18px; padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .form-section-title::before { content: ''; width: 4px; height: 16px; background: var(--teal); border-radius: 2px; }
+
+  .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .form-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+  .form-full { grid-column: 1 / -1; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-label { font-size: 13px; font-weight: 500; color: var(--navy); }
+  .form-label .req { color: var(--teal-dark); margin-left: 2px; }
+  .form-input {
+    border: 1.5px solid #e4e4f0; border-radius: var(--radius-sm);
+    padding: 11px 14px; font-family: var(--font-body); font-size: 15px;
+    color: var(--text); background: #fafafa; outline: none;
+    transition: border-color 0.2s, background 0.2s; width: 100%;
+  }
+  .form-input:focus { border-color: var(--indigo-mid); background: white; }
+  .form-input::placeholder { color: var(--text-light); }
+  .input-prefix-wrap { position: relative; }
+  .input-prefix-sym { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-light); font-size: 14px; pointer-events: none; }
+  .form-input.prefixed { padding-left: 28px; }
+
+  /* CHECKBOXES */
+  .checkbox-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .checkbox-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 11px 14px; border: 1.5px solid #e4e4f0;
+    border-radius: var(--radius-sm); cursor: pointer;
+    transition: all 0.18s; background: #fafafa;
+  }
+  .checkbox-item:hover { border-color: var(--indigo-mid); background: var(--indigo-light); }
+  .checkbox-item input[type="checkbox"] { width: 16px; height: 16px; flex-shrink: 0; accent-color: var(--indigo); cursor: pointer; }
+  .checkbox-item:has(input:checked) { border-color: var(--indigo-mid); background: var(--indigo-light); }
+  .checkbox-item span { font-size: 14px; color: var(--text-muted); line-height: 1.3; }
+  .checkbox-item input:checked + span { color: var(--indigo-dark); font-weight: 500; }
+
+  /* CONSENT */
+  .consent-block { display: flex; align-items: flex-start; gap: 12px; padding: 16px; background: #f4f3fd; border: 1px solid var(--border); border-radius: var(--radius-sm); margin-top: 28px; }
+  .consent-block input[type="checkbox"] { width: 17px; height: 17px; flex-shrink: 0; margin-top: 2px; accent-color: var(--indigo); cursor: pointer; }
+  .consent-block label { font-size: 13px; color: var(--text-muted); line-height: 1.6; cursor: pointer; }
+
+  /* SUBMIT */
+  .submit-row { margin-top: 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .submit-note { font-size: 13px; color: var(--text-light); display: flex; align-items: center; gap: 6px; }
+  .submit-note::before { content: '🔒'; font-size: 14px; }
+  .btn-submit { background: linear-gradient(135deg, var(--indigo) 0%, var(--indigo-dark) 100%); color: white; font-family: var(--font-body); font-size: 16px; font-weight: 600; padding: 15px 44px; border-radius: 50px; border: none; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+  .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(91,79,207,0.38); }
+  .btn-submit:disabled { opacity: 0.65; cursor: wait; transform: none; box-shadow: none; }
+  .form-status { width: 100%; min-height: 22px; margin-top: 10px; font-size: 14px; line-height: 1.5; }
+  .form-status.success { color: #157347; }
+  .form-status.error { color: #b42318; }
+  .hp-field { position: absolute !important; left: -9999px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
+
+  /* SUCCESS */
+  .success-overlay { display: none; flex-direction: column; align-items: center; justify-content: center; padding: 64px 40px; text-align: center; }
+  .success-overlay.active { display: flex; }
+  .form-card-body.submitted { display: none; }
+  .success-icon { width: 72px; height: 72px; background: var(--teal-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; margin-bottom: 24px; }
+  .success-overlay h3 { font-family: var(--font-display); font-size: 26px; font-weight: 600; color: var(--navy); margin-bottom: 12px; }
+  .success-overlay p { font-size: 16px; color: var(--text-muted); max-width: 420px; line-height: 1.7; }
+
+  /* BOTTOM STRIP */
+  .bottom-strip {
+    margin-top: 48px;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  }
+  .bottom-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: var(--radius); overflow: hidden;
+    display: flex; align-items: stretch;
+  }
+  .bottom-card-img { width: 100px; flex-shrink: 0; object-fit: cover; display: block; }
+  .bottom-card-body { padding: 18px 20px; }
+  .bottom-card-body h4 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+  .bottom-card-body p { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
+
+  footer { background: var(--navy); color: rgba(255,255,255,0.45); text-align: center; padding: 26px 5vw; font-size: 14px; margin-top: 60px; }
+
+  @media (max-width: 700px) {
+    .form-card-body { padding: 28px 20px; }
+    .form-card-header { padding: 24px 20px; }
+    .form-grid-2, .form-grid-3, .checkbox-grid { grid-template-columns: 1fr; }
+    .form-full { grid-column: 1; }
+    .submit-row { flex-direction: column; align-items: flex-start; }
+    .btn-submit { width: 100%; text-align: center; }
+    .bottom-strip { grid-template-columns: 1fr; }
+    .trust-pills { gap: 8px; }
+  }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .page-hero-badge { animation: fadeUp 0.45s ease both; }
+  .page-hero h1 { animation: fadeUp 0.45s 0.1s ease both; }
+  .page-hero p { animation: fadeUp 0.45s 0.2s ease both; }
+  .trust-pills { animation: fadeUp 0.45s 0.3s ease both; }
+  .form-card { animation: fadeUp 0.55s 0.1s ease both; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <div class="nav-logo-icon"></div>
+    <span class="nav-logo-text">Lusa<span>link</span></span>
+  </a>
+  <a class="nav-back" href="index.html">
+    <span class="back-long">Voltar ao início</span>
+    <span class="back-short">Início</span>
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-bg-overlay"></div>
+  <div class="hero-inner">
+    <div class="page-hero-badge">Avaliação confidencial e gratuita</div>
+    <h1>Saiba quanto pode valer<br><em>o seu negócio</em></h1>
+    <p>Preencha o formulário abaixo para efetuarmos uma análise inicial confidencial do seu negócio, sem qualquer compromisso da sua parte.</p>
+    <div class="trust-pills">
+      <span class="trust-pill">🔒 100% confidencial</span>
+      <span class="trust-pill">⚡ Resposta em 48h</span>
+      <span class="trust-pill">🤝 Sem compromisso</span>
+      <span class="trust-pill">🇵🇹 Operamos em Portugal</span>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<div class="page-body">
+  <div class="form-card">
+    <div class="form-card-header">
+      <div class="form-card-header-icon">📋</div>
+      <div>
+        <h2>Formulário de avaliação</h2>
+        <p>Análise inicial confidencial · Sem compromisso · Resposta em 48h úteis</p>
+      </div>
+    </div>
+
+    <form class="form-card-body" id="evaluationForm" novalidate>
+      <input class="hp-field" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <!-- CONTACTO -->
+      <div class="form-section">
+        <div class="form-section-title">Dados de contacto</div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="f-nome">Nome <span class="req">*</span></label>
+            <input class="form-input" type="text" id="f-nome" name="Nome" placeholder="O seu nome completo" autocomplete="name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-tel">Telefone <span class="req">*</span></label>
+            <input class="form-input" type="tel" id="f-tel" name="Telefone" placeholder="+351 900 000 000" autocomplete="tel" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-email">Email</label>
+            <input class="form-input" type="email" id="f-email" name="email" placeholder="email@empresa.pt" autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-cargo">Cargo / Função</label>
+            <input class="form-input" type="text" id="f-cargo" name="Cargo / Função" placeholder="Ex: Sócio-gerente" autocomplete="organization-title">
+          </div>
+        </div>
+      </div>
+
+      <!-- EMPRESA -->
+      <div class="form-section">
+        <div class="form-section-title">Dados da empresa</div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="f-empresa">Nome da Empresa <span class="req">*</span></label>
+            <input class="form-input" type="text" id="f-empresa" name="Nome da empresa" placeholder="Nome da sua empresa" autocomplete="organization" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-nif">NIF</label>
+            <input class="form-input" type="text" id="f-nif" name="NIF" placeholder="000 000 000" inputmode="numeric">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-cp">Código Postal <span class="req">*</span></label>
+            <input class="form-input" type="text" id="f-cp" name="Código Postal" placeholder="0000-000" autocomplete="postal-code" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-site">Website</label>
+            <input class="form-input" type="url" id="f-site" name="Website" placeholder="https://www.empresa.pt" autocomplete="url">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-anos">Anos de actividade</label>
+            <input class="form-input" type="number" id="f-anos" name="Anos de actividade" placeholder="Ex: 15" min="0">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-colab">Nº de colaboradores</label>
+            <input class="form-input" type="number" id="f-colab" name="Número de colaboradores" placeholder="Ex: 8" min="0">
+          </div>
+        </div>
+      </div>
+
+      <!-- TIPO -->
+      <div class="form-section">
+        <div class="form-section-title">Tipo de negócio</div>
+        <div class="checkbox-grid">
+          <label class="checkbox-item"><input type="checkbox" name="Tipo de negócio" value="contabilidade"><span>Contabilidade</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="Tipo de negócio" value="consultoria-fiscal"><span>Consultoria fiscal</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="Tipo de negócio" value="consultoria-gestao"><span>Consultoria de gestão</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="Tipo de negócio" value="bpo-financeiro"><span>BPO financeiro</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="Tipo de negócio" value="bpo-hr"><span>BPO HR</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="Tipo de negócio" value="bpo-it"><span>BPO IT</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="Tipo de negócio" value="formacao"><span>Formação / certificação</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="Tipo de negócio" value="medicina-trabalho"><span>Medicina no trabalho</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="Tipo de negócio" value="outro"><span>Outro</span></label>
+        </div>
+      </div>
+
+      <!-- FINANCEIROS -->
+      <div class="form-section">
+        <div class="form-section-title">Dados financeiros</div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="f-receita">Receita Anual (€)</label>
+            <div class="input-prefix-wrap">
+              <span class="input-prefix-sym">€</span>
+              <input class="form-input prefixed" type="text" id="f-receita" name="Receita anual (€)" placeholder="Ex: 250 000" inputmode="decimal">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-ebitda">Margem EBITDA (€)</label>
+            <div class="input-prefix-wrap">
+              <span class="input-prefix-sym">€</span>
+              <input class="form-input prefixed" type="text" id="f-ebitda" name="EBITDA (€)" placeholder="Ex: 80 000" inputmode="decimal">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONSENT -->
+      <div class="consent-block">
+        <input type="checkbox" id="consent" name="Consentimento RGPD" value="Sim" required>
+        <label for="consent">Autorizo a utilização dos dados fornecidos para os fins comunicados, bem como o uso dos dados de contacto para comunicações futuras relacionadas com o processo de avaliação e aquisição. Os dados são tratados de acordo com o RGPD.</label>
+      </div>
+
+      <!-- SUBMIT -->
+      <div class="submit-row">
+        <span class="submit-note">Informação confidencial e segura</span>
+        <button class="btn-submit" type="submit">Enviar pedido de avaliação</button>
+        <div class="form-status" id="evaluationStatus" aria-live="polite"></div>
+      </div>
+
+    </form><!-- /form-card-body -->
+
+    <!-- SUCCESS -->
+    <div class="success-overlay" id="successOverlay">
+      <div class="success-icon">✓</div>
+      <h3>Pedido enviado com sucesso!</h3>
+      <p>Recebemos os seus dados. A nossa equipa irá analisar a sua empresa e entrar em contacto em até 48 horas úteis para uma conversa confidencial e sem compromisso.</p>
+    </div>
+  </div>
+
+  <!-- BOTTOM CARDS -->
+  <div class="bottom-strip">
+    <div class="bottom-card">
+      <img class="bottom-card-img" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=200&q=75" alt="Processo transparente">
+      <div class="bottom-card-body">
+        <h4>Processo transparente</h4>
+        <p>Acompanhamos cada passo da venda com clareza, sem surpresas e com total respeito pelo seu tempo.</p>
+      </div>
+    </div>
+    <div class="bottom-card">
+      <img class="bottom-card-img" src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=200&q=75" alt="Equipa experiente">
+      <div class="bottom-card-body">
+        <h4>Equipa experiente na Europa</h4>
+        <p>Histórico comprovado de aquisições em Portugal, Espanha e Reino Unido, gerando valor sustentável.</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page-body -->
+
+<footer>© Lusalink. Todos os direitos reservados.</footer>
+
+<script src="forms.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: lusalink
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: EMAIL_PROVIDER
+        value: resend
+      - key: RESEND_API_KEY
+        sync: false
+      - key: FORM_TO_EMAIL
+        sync: false
+      - key: FORM_FROM_EMAIL
+        sync: false
+      - key: FORM_SUBJECT_PREFIX
+        value: Lusalink
